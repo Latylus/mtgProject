@@ -1,0 +1,210 @@
+[
+    {
+        "deck_name": "Amulet Titan",
+        "archetype_name": "",
+        "deck_link": "http://www.mtgtop8.com/event?e=27962&d=421767&f=MO",
+        "deck_rank_at_tournament": "2",
+        "cards": [
+            {
+                "card_name": "Bojuka Bog",
+                "count": "1",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Breeding Pool",
+                "count": "1",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Castle Garenbrig",
+                "count": "2",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Cavern of Souls",
+                "count": "2",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Crumbling Vestige",
+                "count": "1",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Field of the Dead",
+                "count": "1",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Forest",
+                "count": "2",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Ghost Quarter",
+                "count": "1",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Golgari Rot Farm",
+                "count": "1",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Gruul Turf",
+                "count": "4",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Hanweir Battlements",
+                "count": "1",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Radiant Fountain",
+                "count": "1",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Simic Growth Chamber",
+                "count": "4",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Snow-Covered Forest",
+                "count": "2",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Stomping Ground",
+                "count": "1",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Tolaria West",
+                "count": "2",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Valakut, the Molten Pinnacle",
+                "count": "2",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Vesuva",
+                "count": "1",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Wooded Foothills",
+                "count": "1",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Arboreal Grazer",
+                "count": "2",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Azusa, Lost but Seeking",
+                "count": "2",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Dryad of the Ilysian Grove",
+                "count": "4",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Primeval Titan",
+                "count": "4",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Sakura-Tribe Scout",
+                "count": "2",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Explore",
+                "count": "3",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Summoner's Pact",
+                "count": "4",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Turntimber Symbiosis",
+                "count": "3",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Amulet of Vigor",
+                "count": "4",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Engineered Explosives",
+                "count": "1",
+                "is_sideboard": "False"
+            },
+            {
+                "card_name": "Boil",
+                "count": "2",
+                "is_sideboard": "True"
+            },
+            {
+                "card_name": "Engineered Explosives",
+                "count": "1",
+                "is_sideboard": "True"
+            },
+            {
+                "card_name": "Field of the Dead",
+                "count": "1",
+                "is_sideboard": "True"
+            },
+            {
+                "card_name": "Firespout",
+                "count": "2",
+                "is_sideboard": "True"
+            },
+            {
+                "card_name": "Force of Vigor",
+                "count": "1",
+                "is_sideboard": "True"
+            },
+            {
+                "card_name": "Kozilek, Butcher of Truth",
+                "count": "1",
+                "is_sideboard": "True"
+            },
+            {
+                "card_name": "Obstinate Baloth",
+                "count": "2",
+                "is_sideboard": "True"
+            },
+            {
+                "card_name": "Pact of Negation",
+                "count": "1",
+                "is_sideboard": "True"
+            },
+            {
+                "card_name": "Reclamation Sage",
+                "count": "1",
+                "is_sideboard": "True"
+            },
+            {
+                "card_name": "Relic of Progenitus",
+                "count": "2",
+                "is_sideboard": "True"
+            },
+            {
+                "card_name": "Tireless Tracker",
+                "count": "1",
+                "is_sideboard": "True"
+            }
+        ]
+    }
+]

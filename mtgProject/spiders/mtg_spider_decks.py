@@ -1,28 +1,40 @@
 import scrapy 
+import json
 
-class mtg_spider(scrapy.Spider):
-    name="mtg3"
+class mtg_decks_spider(scrapy.Spider):
+    name="mtg_decks"
     def start_requests(self):
         
-        with open('mtgProject/decks.txt','r') as links:
-            urls = links.read().split('\n')[:self.n]
-            urls = ['http://mtgtop8.com/'+deck for deck in urls]
+        with open('archetypes.json','r') as links:
+            all_data = json.load(links)
+            urls = [x["link"] for x in all_data]
+            # urls = links.read().split('\n')[:self.n]
+            # urls = ['http://mtgtop8.com/'+deck for deck in urls]
         for url in urls:
-            yield scrapy.Request(url=url, callback=self.parse)
-    n = 777
-    count = 0
-    def parse(self, response):
-        
-	    # xpath of deck:
-        #/html/body/div[3]/div/table/tbody/tr/td[2]/table[2]/tbody/tr/td/table/tbody/tr
-        deck_xpath = '/html/body/div[3]/div/table/tr/td[2]/table[2]/tr/td/table/tr'
-        xpath_s =deck_xpath
-        item = response.xpath(xpath_s)
-        cont = str(item.extract())[3:-2]
-        print(cont)
-        self.count+= 1
+            yield scrapy.Request(url=url, callback = self.parse, meta={'page_number': 1})
 
-        with open('./decks/deck_table'+str(self.count)+'.html','w') as f:
-            f.write(cont)
+    def parse(self, response):
+        current_url = response.request.url
+        page_number = response.meta['page_number']
+        # Get data on current page
+        # xpath is different from what the web inspector gives us
+        archetype_name = response.xpath("//table[@class='Stable'][1]/descendant::div[@class='w_title'][@align='center']/text()").get()
+        xpath = "//table[@class='Stable'][1]/tr[@class='hover_tr']"
+        
+        for element in response.xpath(xpath):
+            yield {
+                'link' : 'http://mtgtop8.com/' + element.xpath('(./td/a[@href])[1]/@href').get(),
+                'archetype_name' : archetype_name,
+                'name' : element.xpath('(./td/a[@href])[1]/text()').get(),
+                'rank' : element.xpath('(./td[count(*)=0])[1]/text()').get()
+            }
+        # Check if there is a next page
+        xpath_next_button = "//div[@class = 'Nav_PN'][contains(.,'Next')]"
+        # if this can't be found it means either the next is greyed out (we're already at the last page), or there is only one page
+        next_button = response.xpath(xpath_next_button)
+        # Go get data on next page if there is one
+        if next_button:
+            yield scrapy.FormRequest(url = current_url, formdata = {'current_page' : str(page_number+1)}, callback = self.parse(response), meta={'page_number': page_number+1})
+
           
         

@@ -1,11 +1,12 @@
-A set of Spiders for crawling mtgtop8, a Website dedicated to compiling and documenting the state of Meta in Magic: The Gathering.
+This is a fork of https://github.com/StrikingLoo/mtgProject .
+This project fetches the complete dataset for a given meta from mtgtop8 as the original project was incomplete.
+The saved data can also be saved in json format for ease of use.
 
-The first spider compiles all 'Archetypes' an internal division of decks done by the site (though typical of the game).
-The second one crawls archetypes for a list of 'events' where different decks are played.
-The third and last one, finally, crawls the list of decks used in each event and saves the cards' names in a text file, making analysis possible.
+Although the data is directly available here for the 2018 modern metagame (https://mtgtop8.com/format?f=MO&meta=163&a=), you can also fecth it yourself, or even fetch other metagames with the following process:
 
-The scripts I made for the processing and analysis of the collected dataset, and the small recommender system (based in simple Bayesian models, nothing too fancy), helped me realize how stale and static the MtG Meta is, and how useless a recommender system would be on encouraging creativity, since most of the combos and synergies are already discovered and explored.
+- set the metagame link(s) in the `/mtgProject/spiders/mtg_spider_archetypes.py` file
+- run the following command in the `/mtgProject` directory : `scrapy crawl mtg_archetypes -O archetypes.json`
+- run the following command in the `/mtgProject` directory : `scrapy crawl mtg_decks -O deck_links.json`
+- run the following command in the `/mtgProject` directory : `scrapy crawl mtg_deck_details -O all_decks.json`
 
-Generating a dataset of casual decks, or budget ones, will be an interesting project for the future, if I ever come back to it.
-
-The dataset is also made public for analysis, and I would appreciate mentions from anyone who gained an interesting insight from it, as well as a mention to mtgtop8, which are our source of data.
+The `-O` at the end of these commands is a parameter to save the result to the indicated json. You might want to save it to another file but if you do, you will have to update the following spiders to open the right file as inputs.

@@ -1,20 +1,20 @@
 import scrapy 
 
-class mtg_spider(scrapy.Spider):
-    name="mtg"
+target_urls = ['http://mtgtop8.com/format?f=MO&meta=163']
+
+class mtg_archetypes_spider(scrapy.Spider):
+    name="mtg_archetypes"
+    
     def start_requests(self):
-        urls = ['http://mtgtop8.com/format?f=MO&meta=163']
+        urls = target_urls
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
-    items = []
+    
     def parse(self, response):
-        
-        xpath_s = '/html/body/div[3]/div/table'
-        item = response.xpath(xpath_s)
-        cont = str(item.extract())
-        cont = cont.split('archetype?a=')
-        archetypes = [arch[:3] for arch in cont[1:]]
-        print(archetypes)
-        with open('linklist.txt','w') as f:
-            contents = '\n'.join(['http://mtgtop8.com/archetype?a='+a+'&meta=163&f=MO' for a in archetypes])
-            f.write(contents)
+        xpath = "//a[starts-with(@href,'archetype')]"
+        item = response.xpath(xpath)
+        for arch in item.getall():
+            yield{
+                'link' : 'http://mtgtop8.com/' + arch.split("\"")[1].replace("&amp;", "&"),
+                'name' : arch.split("\"")[2][1:-4],
+            }
