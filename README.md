@@ -1,8 +1,8 @@
 This is a fork of https://github.com/StrikingLoo/mtgProject .
-This project fetches the complete dataset for a given meta from mtgtop8 as the original project was incomplete.
+This project fetches and saves the complete dataset for a given meta from mtgtop8 as the original project was incomplete.
 The saved data can also be saved in json format for ease of use.
 
-Although the data is directly available here for the 2018 modern metagame (https://mtgtop8.com/format?f=MO&meta=163&a=), you can also fecth it yourself, or even fetch other metagames with the following process:
+Although the data is directly available here for the 2018 modern metagame (https://mtgtop8.com/format?f=MO&meta=163&a=), you can also fetch it yourself, or even fetch other metagames with the following process:
 
 - set the metagame link(s) in the `/mtgProject/spiders/mtg_spider_archetypes.py` file
 - run the following command in the `/mtgProject` directory : `scrapy crawl mtg_archetypes -O archetypes.json`
